@@ -3,19 +3,14 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types'
 
 function Categories() {
-  const categories = useSelector((state) => state.categories.value);
+  const status = useSelector((state) => state.categories.status);
   // const dispatch = useDispatch();
 
   return (
-    <>
-      <div>Categories</div><ul>
-        {categories.map((c) => (
-          <li>
-            {c}
-          </li>
-        ))}
-      </ul>
-    </>
+    <div>
+      <h2>Categories</h2>
+      <div>{status}</div>
+    </div>
   )
 }
 

@@ -6,7 +6,7 @@ import { addBook, removeBook } from '../../redux/books/booksSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 function Books() {  
-  const categories = useSelector((state) => state.categories.value);
+  const categories = useSelector((state) => [state.categories.status]);
   const booksAvailable = useSelector((state) => state.books.value);
   const dispatch = useDispatch();
 

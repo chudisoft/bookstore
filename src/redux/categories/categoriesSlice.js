@@ -1,12 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: [
-    'Action',
-    'Science Fiction',
-    'Economy',
-    'Music',
-  ],
+  categories: [],
+  status: 'Under construction',
 };
 
 export const categoriesSlice = createSlice({
@@ -18,15 +14,16 @@ export const categoriesSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.value.push(action.payload);
+      state.categories.push(action.payload);
     },
     removeCategory: (state, action) => {
-      state.value.pop(initialState.value.find((x) => x === action.payload));
+      state.categories.pop(initialState.categories.find((x) => x === action.payload));
     },
+    checkStatus: (state) => state.status,
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addCategory, removeCategory } = categoriesSlice.actions;
+export const { addCategory, removeCategory, checkStatus } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;
