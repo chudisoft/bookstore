@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types'
 
 function Categories() {
-  const [categories, setCategories] = useState([
-    'Action',
-    'Science Fiction',
-    'Economy',
-    'Music',
-  ]);
+  const categories = useSelector((state) => state.categories.value);
+  // const dispatch = useDispatch();
 
   return (
     <>
