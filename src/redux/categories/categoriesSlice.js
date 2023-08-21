@@ -19,7 +19,11 @@ export const categoriesSlice = createSlice({
     removeCategory: (state, action) => {
       state.categories.pop(initialState.categories.find((x) => x === action.payload));
     },
-    checkStatus: (state) => state.status,
+    checkStatus: (state, action) => {
+      state.categories = action.payload === 'Under construction'
+        ? [action.payload]
+        : state.categories;
+    },
   },
 });
 
