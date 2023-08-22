@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   categories: [],
-  status: 'Under construction',
 };
 
 export const categoriesSlice = createSlice({
@@ -19,9 +18,8 @@ export const categoriesSlice = createSlice({
     removeCategory: (state, action) => {
       state.categories.pop(initialState.categories.find((x) => x === action.payload));
     },
-    checkStatus: (state, action) => {
-      state.categories = action.payload === 'Under construction'
-        ? [action.payload]
+    checkStatus: (state) => {
+      state.categories = state.categories.length === 0 ? ['Under construction']
         : state.categories;
     },
   },

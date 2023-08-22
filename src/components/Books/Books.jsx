@@ -4,11 +4,13 @@ import Book from './Book';
 import NewBook from './NewBook';
 import { addBook, removeBook } from '../../redux/books/booksSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { checkStatus } from '../../redux/categories/categoriesSlice';
 
 function Books() {  
-  const categories = useSelector((state) => [state.categories.status]);
-  const booksAvailable = useSelector((state) => state.books.value);
   const dispatch = useDispatch();
+  dispatch(checkStatus());
+  const categories = useSelector((state) => state.categories.categories);
+  const booksAvailable = useSelector((state) => state.books.value);
 
   const comments = ( book ) => {}
   const edit = ( book ) => {}
@@ -20,6 +22,7 @@ function Books() {
     dispatch(
       addBook(
         {
+          item_id: `item ${(booksAvailable.length + 1)}`,
           category: category,
           title: title,
           author: author,
