@@ -80,7 +80,7 @@ It also allows the student to showcase what they can do to the future employee.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> This Project is deployed at [Github Pages](https://chudisoft.github.io/bookstore/build/)
+> This Project is deployed at [render.com](https://bookstore-3c90.onrender.com)
 
 <!-- - [Live Demo Link](https://google.com) -->
 

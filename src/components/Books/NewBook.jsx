@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// eslint-disable-next-line
-import PropTypes, { array } from 'prop-types';
+import PropTypes from 'prop-types';
 
 const NewBook = ({ add, categories }) => {
   const [title, setTitle] = useState('');
