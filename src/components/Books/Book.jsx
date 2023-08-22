@@ -1,6 +1,5 @@
 import React from "react";
-// eslint-disable-next-line
-import PropTypes, { array } from "prop-types";
+import PropTypes from "prop-types";
 
 const Book = ({ book, comments, edit, remove, updateProgress }) => {
   Book.propTypes = {

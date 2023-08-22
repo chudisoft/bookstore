@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types'
 import Book from './Book';
 import NewBook from './NewBook';
-// import { addBook, removeBook } from '../../redux/books/booksSlice';
 import { fetchBooks, addBook, removeBook } from '../../redux/books/booksSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkStatus } from '../../redux/categories/categoriesSlice';

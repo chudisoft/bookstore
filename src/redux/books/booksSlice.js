@@ -95,7 +95,6 @@ export const booksSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-// export const { addBook, removeBook } = booksSlice.actions;
 export { addBook, fetchBooks, removeBook };
 
 export default booksSlice.reducer;
