@@ -1,6 +1,5 @@
 import React from "react";
-// eslint-disable-next-line
-import PropTypes, { array } from "prop-types";
+import PropTypes from "prop-types";
 
 const Book = ({ book, comments, edit, remove, updateProgress }) => {
   Book.propTypes = {
@@ -34,8 +33,8 @@ const Book = ({ book, comments, edit, remove, updateProgress }) => {
           <span className="fa fa-percentage"></span>
           <div className="block">
             <label>
-              <span>{book.percentage}</span>
-              <span>%</span>
+              <span>{40}</span>
+              <span>% </span>
             </label>
             <label>Completed</label>
           </div>

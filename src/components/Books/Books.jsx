@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types'
 import Book from './Book';
 import NewBook from './NewBook';
-import { addBook, removeBook } from '../../redux/books/booksSlice';
+import { fetchBooks, addBook, removeBook } from '../../redux/books/booksSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkStatus } from '../../redux/categories/categoriesSlice';
 
@@ -10,7 +11,12 @@ function Books() {
   const dispatch = useDispatch();
   dispatch(checkStatus());
   const categories = useSelector((state) => state.categories.categories);
-  const booksAvailable = useSelector((state) => state.books.value);
+  const error = useSelector((state) => state.books.error);
+  const booksAvailable = useSelector((state) => state.books.books);
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
 
   const comments = ( book ) => {}
   const edit = ( book ) => {}
@@ -22,12 +28,10 @@ function Books() {
     dispatch(
       addBook(
         {
-          item_id: `item ${(booksAvailable.length + 1)}`,
-          category: category,
-          title: title,
-          author: author,
-          percentage: 0,
-          chapter: 'Introduction'
+          item_id: uuidv4(),
+          category,
+          title,
+          author,
         }
       )
     );
@@ -36,6 +40,7 @@ function Books() {
   return (
     <div>
       <h2>Books</h2>
+      <div>{error}</div>
       {
         booksAvailable.map((b) => 
           <Book 
