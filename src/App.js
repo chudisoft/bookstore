@@ -5,7 +5,7 @@ import GlobalNav from './components/GlobalNav/GlobalNav';
 function App() {
   return (
     <div className="App">
-      <div className="row">
+      <div id="root" className="row">
         <GlobalNav />
         <Outlet />
       </div>

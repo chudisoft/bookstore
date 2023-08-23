@@ -13,28 +13,36 @@ const NewBook = ({ add, categories }) => {
 
   return (
     <div className='new-book'>
-        <h3>Add New Book</h3>
+        <h2 className='form-title'>Add New Book</h2>
         <form
+          className='add-form'
           onSubmit={
             (e) => {
               e.preventDefault();
               add(title, author, category);
+              setAuthor('');
+              setTitle('');
             }
           }
         >
           <input
+            className='input title-input'
             required
             type="text"
+            value={title}
             placeholder='Title'
             onChange={(e) => setTitle(e.target.value)}
           />
           <input
+            className='input title-input'
             required
             type="text"
+            value={author}
             placeholder='Author'
             onChange={(e) => setAuthor(e.target.value)}
           />
           <select
+            className='input category-input'
             required
             onChange={(e) => setCategory(e.target.value)}
           >
@@ -44,7 +52,7 @@ const NewBook = ({ add, categories }) => {
               ))
             }
           </select>
-          <button type='submit'>Submit</button>
+          <button className='primary-button-big' type='submit'>Add Book</button>
         </form>
     </div>
   );
