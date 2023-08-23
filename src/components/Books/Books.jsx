@@ -6,6 +6,7 @@ import NewBook from './NewBook';
 import { fetchBooks, addBook, removeBook } from '../../redux/books/booksSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkStatus } from '../../redux/categories/categoriesSlice';
+import './Book.css';
 
 function Books() {  
   const dispatch = useDispatch();
@@ -38,22 +39,23 @@ function Books() {
   }
 
   return (
-    <div>
-      <h2>Books</h2>
+    <div className='w-100 p-4'>
       <div>{error}</div>
-      {
-        booksAvailable.map((b) => 
-          <Book 
-            book={b}
-            comments={comments}
-            edit={edit}
-            remove={remove}
-            updateProgress={updateProgress}
-          />
-        )
-      }
+      <div className='books'>
+        {
+          booksAvailable.map((b) => 
+            <Book 
+              book={b}
+              comments={comments}
+              edit={edit}
+              remove={remove}
+              updateProgress={updateProgress}
+            />
+          )
+        }
+      </div>
       <div>
-        <hr />
+        <div class="horizontal-divider"></div>
         <NewBook add={add} categories={categories}/>
       </div>
     </div>

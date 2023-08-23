@@ -12,40 +12,55 @@ const Book = ({ book, comments, edit, remove, updateProgress }) => {
 
   return (
     <div className="book">
-      <div>
-        <h4>{book.category}</h4>
-        <h2>{book.title}</h2>
-        <h4>{book.author}</h4>
-        <div className="button-groups">
-          <button type="button" onClick={() => comments(book)}>
+      <div className="book-info">
+        <h4 className="book-category">{book.category}</h4>
+        <h2 className="book-title">{book.title}</h2>
+        <h6 className="book-author">{book.author}</h6>
+        <div className="action-buttons">
+          <button
+            className="button-outline"
+            type="button"
+            onClick={() => comments(book)}
+          >
             Comments
           </button>
-          <button type="button" onClick={() => remove(book)}>
+          <div className="vertical-divider"></div>
+          <button
+            className="button-outline"
+            type="button"
+            onClick={() => remove(book)}
+          >
             Remove
           </button>
-          <button type="button" onClick={() => edit(book)}>
+          <div className="vertical-divider"></div>
+          <button
+            className="button-outline"
+            type="button"
+            onClick={() => edit(book)}
+          >
             Edit
           </button>
         </div>
       </div>
-      <div className="progress">
-        <div className="percentage">
-          <span className="fa fa-percentage"></span>
-          <div className="block">
-            <label>
-              <span>{40}</span>
-              <span>% </span>
-            </label>
-            <label>Completed</label>
-          </div>
+      <div class="progress">
+        <div class="circular-progress-container">
+          <div class="circular-progress"></div>
         </div>
-        <div className="bar"></div>
-        <div className="chapter">
-          <p>CURRENT CHAPTER</p>
-          <label>{book.chapter}</label>
-          <button type="button" onClick={() => updateProgress(book)}>
-            Update Progress
-          </button>
+        <div class="progress-stat">
+          <p class="percent-complete">64%</p>
+          <p class="completed">Completed</p>
+        </div>
+        <div class="progress-divider"></div>
+        <div class="current-chapter-container">
+          <div>
+            <p class="current-chapter-label">CURRENT CHAPTER</p>
+            <p class="current-chapter">Chapter 17</p>
+          </div>
+          <div>
+            <button class="primary-button" type="button">
+              UPDATE PROGRESS
+            </button>
+          </div>
         </div>
       </div>
     </div>

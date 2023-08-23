@@ -2,13 +2,15 @@ import React from 'react';
 import './GlobalNav.css';
 
 const GlobalNav = () => (
-  <nav className="container">
-    <h2>BookStore CMS</h2>
-    <ul>
-      <li><a href="/Books">BOOKS</a></li>
-      <li>|</li>
-      <li><a href="/Categories">CATEGORIES</a></li>
+  <nav className="nav-bar">
+    <a href='/' className='nav-brand'>BookStore CMS</a>
+    <ul className='nav-links'>
+      <li><a className='nav-link' href="/Books">BOOKS</a></li>
+      <li><a className='nav-link' href="/Categories">CATEGORIES</a></li>
     </ul>
+    <button class="icon-button" type="button">
+      <span class="material-icons primary-color">person</span>
+    </button>
   </nav>
 );
 
